@@ -8,14 +8,12 @@ var htmlReadyWord = ""
 var wordArray = ["girl", "house", "floor", "cat", "laptop", "fan"];
 
 //add eventlistener to entryButton
-
 $entryButton.on("click",function(){
 	getContent();
 })
 
 
 //a function to load up the DOM
-
 function loadAllToDom(){
 	console.log("load all to the dom called!")
 	$.ajax({
@@ -34,9 +32,7 @@ function prepareToAppend(data){
 		wordArray.forEach(function(wordFromArray){
 			if(contentsFromDb.contents.search(wordFromArray) !== -1){
 				highlight = wordFromArray;
-				htmlReadyWord = "<span class='highlight'>"+ wordFromArray + "</span>";
-				// debugger;
-				//words are reset, now need to call addEntryView (does anything need to be passed?)
+				htmlReadyWord = "<span class='highlight animated flash'>"+ wordFromArray + "</span>";
 			}
 		})
 				addEntryView(contentsFromDb);
@@ -51,7 +47,7 @@ function getContent(){
 	if(contentChecker(content)){
 		addEntryModel(content)
 	}else{
-		alert("you gotta use one of the words!")
+		alert("Looks like that word isn't in the array! Try again!")
 	}
 }
 
@@ -68,18 +64,6 @@ function addEntryModel(content){
 	})
 }
 
-//a function to check the string
-function contentChecker(content){
-	for(i = 0; i < wordArray.length; i++){
-		if(content.search(wordArray[i]) !== -1){
-			highlight = wordArray[i];
-			htmlReadyWord = "<span class='highlight'>"+ wordArray[i] + "</span>";
-			console.log("true");
-			return true
-		}
-	}
-}
-
 //a function to add the view to the DOM
 function addEntryView(data){
 	data = data.contents.replace(highlight,htmlReadyWord);
@@ -87,6 +71,19 @@ function addEntryView(data){
 	var $newP = $("<p>"  + data + "</p>");
 	$storyBox.append($newP);
 }
+
+//a function to check the string to make sure the word added is part of the array
+function contentChecker(content){
+	for(i = 0; i < wordArray.length; i++){
+		if(content.search(wordArray[i]) !== -1){
+			highlight = wordArray[i];
+			htmlReadyWord = "<span class='highlight animated flash'>"+ wordArray[i] + "</span>";
+			console.log("true");
+			return true
+		}
+	}
+}
+
 
 loadAllToDom();
 
