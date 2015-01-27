@@ -3,7 +3,7 @@ console.log("mainjslinked")
 var $storyBox = $("#story-box");
 var $userEntry = $("#entry-form");
 var $entryButton = $("#enter-text");
-
+var wordArray = ["girl", "house", "floor", "cat", "laptop", "fan"]
 
 //add eventlistener to entryButton
 
@@ -37,7 +37,8 @@ function addEntryModel(content){
 
 //a function to check the string
 function contentChecker(content){
-	if(content === "matt"){
+	if(content.search("matt") !== -1){
+		console.log("true");
 		return true
 	}
 	else
