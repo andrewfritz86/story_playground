@@ -24,10 +24,24 @@ function loadAllToDom(){
 	}).done(function(data){
 		data = JSON.parse(data);
 		console.log(data);
-		//need to loop through here and add everything to the dom with the span tag added
-		//need to set highlight word and htmlready content, can then just execute regular append function each time
-		//need two loops here
+		prepareToAppend(data);
 	})
+}
+
+//function that loops through each dom element, finding the highlighted word, and getting it ready for the dom
+function prepareToAppend(data){
+	data.forEach(function(contentsFromDb){
+		wordArray.forEach(function(wordFromArray){
+			if(contentsFromDb.contents.search(wordFromArray) !== -1){
+				highlight = wordFromArray;
+				htmlReadyWord = "<span class='highlight'>"+ wordFromArray + "</span>";
+				// debugger;
+				//words are reset, now need to call addEntryView (does anything need to be passed?)
+			}
+		})
+				addEntryView(contentsFromDb);
+	})
+
 }
 
 //functions for adding to DB, appending to DOM
@@ -74,5 +88,6 @@ function addEntryView(data){
 	$storyBox.append($newP);
 }
 
+loadAllToDom();
 
 
