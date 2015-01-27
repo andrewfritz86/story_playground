@@ -15,7 +15,11 @@ $entryButton.on("click",function(){
 function getContent(){
 	console.log('addEntryModel fired');
 	var content = $userEntry.val();
-	addEntryModel(content);
+	if(contentChecker(content)){
+		addEntryModel(content)
+	}else{
+		alert("ohhh kevin")
+	}
 }
 
 function addEntryModel(content){
@@ -27,16 +31,7 @@ function addEntryModel(content){
 	}).done(function(data){
 		console.log(data);
 		data = JSON.parse(data);
-		//check if magic word exists, if so, add to dom
-		if(contentChecker(data.contents)){
-			console.log("contents are there!")
-			addEntryView(data.contents)
-		}
-		else
-		{
-			console.log("nope, no contents!")
-			//eventually an alert here?
-		}
+		addEntryView(data)
 	})
 }
 
@@ -52,8 +47,10 @@ function contentChecker(content){
 }
 
 //a function to add the view to the DOM
-function addEntryView(){
+function addEntryView(data){
 	console.log("addEntryView fired!")
+	var $newP = $("<p>checking the word <span class='highlight'>" + data.contents + "</span> </p>");
+	$storyBox.append($newP);
 }
 
 
