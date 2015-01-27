@@ -10,6 +10,11 @@ get "/" do
 	File.read("./views/index.html")
 end
 
+post "/entries" do 
+	new_entry = Entry.create({contents: params["value"]})
+	new_entry.to_json
+end
+
 
 
 
