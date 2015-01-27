@@ -3,8 +3,18 @@ console.log("mainjslinked")
 var $storyBox = $("#story-box");
 var $userEntry = $("#entry-form");
 var $entryButton = $("#enter-text");
-var highlight = ""
-var htmlReadyWord = ""
+var $counterHeader = $("#counter-header");
+var $counterSpan = $("#counter");
+
+//a counter for keeping track of a player's score
+var counter = 0
+
+//declare two variables to be assigned later
+var highlight, htmlReadyWord
+
+//stand in for an array of words for a given story
+//TODO once a dictionary is built in, this list will be populated by making a call to the datbase and getting all the 
+//words for a particular story instance.
 var wordArray = ["girl", "house", "floor", "cat", "laptop", "fan"];
 
 //add eventlistener to entryButton
@@ -36,6 +46,10 @@ function prepareToAppend(data){
 			}
 		})
 				addEntryView(contentsFromDb);
+				// counter++
+				// $counterSpan.text(counter);
+				// // debugger
+
 	})
 
 }
@@ -70,6 +84,8 @@ function addEntryView(data){
 	console.log("addEntryView fired!")
 	var $newP = $("<p>"  + data + "</p>");
 	$storyBox.append($newP);
+	counter++
+	$counterSpan.text(counter);
 }
 
 //a function to check the string to make sure the word added is part of the array
