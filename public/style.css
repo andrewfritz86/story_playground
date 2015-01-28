@@ -1,3 +1,31 @@
 .highlight {
-	color: blue;
+	color: #0084b4;
 }
+
+#story-box {
+/*	border: 1px solid black;
+*/	width: 500px;
+	height: 100%;
+	float: left;
+	font-family: righteous;
+	font-size: 18px;
+	text-align: center;
+	background-color: #c0deed;
+	border: 5px solid #66757f;
+	border-radius: 50px;
+}
+
+#entry-container {
+/*	border: 1px solid black;
+*//*	display: inline;
+*/	width: 500px;
+	height: 500px;
+	float: right;
+}
+
+/*#main-container {
+	display: block;
+	border: 1px solid black;
+	width: 1200px;
+	height: 2000px;
+}*/
