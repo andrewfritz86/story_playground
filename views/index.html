@@ -5,28 +5,35 @@
 	  <link rel="stylesheet" href="/style.css">
 	  <link rel="stylesheet" href="/animate.css">
 	  <link rel="stylesheet" href="/skeleton.css">
-
-	<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
-
 </head>
 <body>
 
 	<div class="container">
 		<div class="row">
-			<div class="eight columns">
+			<div class="eight columns" >
+				<div id="dictionary">
+					<h2> Dictionary coming soon aw yeah you know it </h2>
+				</div>
+			</div>
+			<div class="four columns">
+				<div id="entry-container">
+					<h2> Add to your story </h2>
+					<input type="text" id="entry-form"/>
+					<button id="enter-text" class="button-primary"> enter </button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="row">
+			<div class="twelve columns">
 				<div id="story-box">
 					<h1> Here is your story thus far... </h1>
 					<h2 id="counter-header"> Your score so far is <span id="counter" class="animated bounce infinite"></span></h2>
 				</div>
 			</div>
-			<div class="four columns">
-
-				<div id="entry-container">
-					<input type="text" id="entry-form"/>
-					<button id="enter-text"> enter </button>
-				</div>
-			</div>
-
 		</div>
 	</div>
 
