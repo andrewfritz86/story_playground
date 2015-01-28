@@ -46,10 +46,6 @@ function prepareToAppend(data){
 			}
 		})
 				addEntryView(contentsFromDb);
-				// counter++
-				// $counterSpan.text(counter);
-				// // debugger
-
 	})
 
 }
